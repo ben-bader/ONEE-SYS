@@ -1,3 +1,134 @@
+# ONEE-SYS
+
+A Laravel-based inventory and peripheral management application used to track devices, brands, employees and sites.
+
+## Tech Stack
+
+- PHP (8.1+ recommended)
+- Laravel
+- Composer
+- Node.js & npm / Vite (frontend assets)
+- MySQL / MariaDB (or any supported SQL database)
+
+## Requirements
+
+- PHP 8.1 or newer
+- Composer
+- Node.js (16+) and npm or yarn
+- A SQL database (MySQL/MariaDB/Postgres)
+
+## Quick Start
+
+1. Clone the repository
+
+```bash
+git clone <repo-url> ONEE-SYS
+cd ONEE-SYS
+```
+
+2. Install PHP dependencies
+
+```bash
+composer install
+```
+
+3. Copy the example environment and set values
+
+```bash
+cp .env.example .env
+# On Windows PowerShell use: Copy-Item .env.example .env
+# Edit .env and set DB_*, APP_URL and other credentials
+```
+
+4. Generate application key
+
+```bash
+php artisan key:generate
+```
+
+5. Run database migrations and seeders
+
+```bash
+php artisan migrate --seed
+```
+
+6. Install front-end dependencies and build assets
+
+```bash
+npm install
+npm run dev    # development
+# or
+npm run build  # production
+```
+
+7. Serve the application locally
+
+```bash
+php artisan serve
+# then open http://127.0.0.1:8000 or the URL shown
+```
+
+## Environment / Configuration
+
+Set these important `.env` values for development:
+
+- `APP_NAME`
+- `APP_ENV`
+- `APP_URL`
+- `DB_CONNECTION`, `DB_HOST`, `DB_PORT`, `DB_DATABASE`, `DB_USERNAME`, `DB_PASSWORD`
+- Mail and queue settings if used
+
+## Database
+
+This project contains migrations in the `database/migrations` folder and seeders in `database/seeders`.
+Run `php artisan migrate --seed` to create tables and populate any sample data (ensure your `.env` DB settings are correct).
+
+## Testing
+
+Run the test suite with Pest or PHPUnit:
+
+```bash
+./vendor/bin/pest
+# or
+php artisan test
+```
+
+## Common Artisan Commands
+
+- `php artisan migrate` — run pending migrations
+- `php artisan db:seed` — run seeders
+- `php artisan tinker` — interactive REPL
+- `php artisan route:list` — list routes
+
+## Frontend
+
+- Entry assets are in `resources/js` and `resources/css`.
+- Vite is configured (`vite.config.js`) — use `npm run dev` for local development and `npm run build` for production assets.
+
+## Contributing
+
+Feel free to open issues or pull requests. Please include a clear description of changes and follow repository coding standards.
+
+## Deployment
+
+Typical steps:
+
+```bash
+composer install --optimize-autoloader --no-dev
+npm ci && npm run build
+php artisan migrate --force
+php artisan config:cache
+php artisan route:cache
+php artisan view:cache
+```
+
+## License
+
+This repository does not include a license file. Add a suitable license (e.g., MIT) if you intend to publish.
+
+## Questions / Support
+
+If you want me to customize this README further (add architecture diagrams, environment variable examples, or CI/CD instructions), tell me what to include.
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
