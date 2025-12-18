@@ -1,192 +1,181 @@
-# ONEE-SYS
+# 🚀 ONEE-SYS — Inventory & Peripheral Management System
 
-A Laravel-based inventory and peripheral management application used to track devices, brands, employees and sites.
+[![Laravel](https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge\&logo=laravel\&logoColor=white)](https://laravel.com/)
+[![PHP](https://img.shields.io/badge/PHP-777BB4?style=for-the-badge\&logo=php\&logoColor=white)](https://www.php.net/)
+[![SQLite](https://img.shields.io/badge/SQLite-003B57?style=for-the-badge\&logo=sqlite\&logoColor=white)](https://www.sqlite.org/)
+[![Laravel Herd](https://img.shields.io/badge/Laravel%20Herd-FF2D20?style=for-the-badge\&logo=laravel\&logoColor=white)](https://herd.laravel.com/)
+[![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge\&logo=vite\&logoColor=white)](https://vitejs.dev/)
+[![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge\&logo=nodedotjs\&logoColor=white)](https://nodejs.org/)
+[![Composer](https://img.shields.io/badge/Composer-885630?style=for-the-badge\&logo=composer\&logoColor=white)](https://getcomposer.org/)
 
-## Tech Stack
+**ONEE-SYS** is a **modern Laravel-based inventory & peripheral management system** built to manage **devices, peripherals, brands, employees, and sites**, using **SQLite** and developed locally with **Laravel Herd**.
 
-- PHP (8.1+ recommended)
-- Laravel
-- Composer
-- Node.js & npm / Vite (frontend assets)
-- MySQL / MariaDB (or any supported SQL database)
+---
 
-## Requirements
+## 🚀 Features
 
-- PHP 8.1 or newer
-- Composer
-- Node.js (16+) and npm or yarn
-- A SQL database (MySQL/MariaDB/Postgres)
+* 🖥️ Device & peripheral inventory management
+* 🏷️ Brand & category tracking
+* 👤 Employee assignment
+* 🏢 Site / location management
+* 🔐 Secure authentication
+* 🗄️ Lightweight **SQLite** database
+* ⚡ Fast local development with **Laravel Herd**
+* 🎨 Modern asset bundling via **Vite**
+* 📱 Responsive UI
 
-## Quick Start
+---
 
-1. Clone the repository
+## 🛠️ Tech Stack
+
+* **Backend**: Laravel (PHP 8.1+)
+* **Local Dev Environment**: Laravel Herd
+* **Database**: SQLite
+* **Frontend**: Blade + Vite
+* **Dependency Management**: Composer & npm
+* **Version Control**: Git & GitHub
+
+---
+
+## 📋 Requirements
+
+* PHP **8.1+**
+* Composer
+* Node.js **16+**
+* npm or yarn
+* Laravel Herd (recommended for local development)
+
+---
+
+## ⚡ Quick Start (Laravel Herd)
+
+### 1️⃣ Clone the repository
 
 ```bash
-git clone <repo-url> ONEE-SYS
+git clone https://github.com/ben-bader/ONEE-SYS.git
 cd ONEE-SYS
 ```
 
-2. Install PHP dependencies
+---
+
+### 2️⃣ Install dependencies
 
 ```bash
 composer install
+npm install
 ```
 
-3. Copy the example environment and set values
+---
+
+### 3️⃣ Configure environment variables
 
 ```bash
 cp .env.example .env
-# On Windows PowerShell use: Copy-Item .env.example .env
-# Edit .env and set DB_*, APP_URL and other credentials
 ```
 
-4. Generate application key
+Update `.env` for **SQLite**:
+
+```env
+DB_CONNECTION=sqlite
+DB_DATABASE=database/database.sqlite
+```
+
+Create the database file:
+
+```bash
+touch database/database.sqlite
+```
+
+(Windows)
+
+```powershell
+New-Item database/database.sqlite
+```
+
+---
+
+### 4️⃣ Generate app key
 
 ```bash
 php artisan key:generate
 ```
 
-5. Run database migrations and seeders
+---
+
+### 5️⃣ Run migrations & seeders
 
 ```bash
 php artisan migrate --seed
 ```
 
-6. Install front-end dependencies and build assets
+---
 
-```bash
-npm install
-npm run dev    # development
-# or
-npm run build  # production
+### 6️⃣ Start the project with Laravel Herd
+
+* Open **Laravel Herd**
+* Add the project directory
+* Visit the auto-generated domain, e.g.:
+
+```
+https://onee-sys.test
 ```
 
-7. Serve the application locally
+⚡ No `php artisan serve` needed when using Herd.
+
+---
+
+## 🎨 Frontend Development
 
 ```bash
-php artisan serve
-# then open http://127.0.0.1:8000 or the URL shown
+npm run dev    # Development
+# or
+npm run build  # Production
 ```
 
-## Environment / Configuration
+---
 
-Set these important `.env` values for development:
+## 🗃️ Database
 
-- `APP_NAME`
-- `APP_ENV`
-- `APP_URL`
-- `DB_CONNECTION`, `DB_HOST`, `DB_PORT`, `DB_DATABASE`, `DB_USERNAME`, `DB_PASSWORD`
-- Mail and queue settings if used
+* 📂 Migrations: `database/migrations`
+* 🌱 Seeders: `database/seeders`
+* 🗄️ SQLite file: `database/database.sqlite`
 
-## Database
+---
 
-This project contains migrations in the `database/migrations` folder and seeders in `database/seeders`.
-Run `php artisan migrate --seed` to create tables and populate any sample data (ensure your `.env` DB settings are correct).
-
-## Testing
-
-Run the test suite with Pest or PHPUnit:
+## 🧪 Testing
 
 ```bash
-./vendor/bin/pest
-# or
 php artisan test
 ```
 
-## Common Artisan Commands
+---
 
-- `php artisan migrate` — run pending migrations
-- `php artisan db:seed` — run seeders
-- `php artisan tinker` — interactive REPL
-- `php artisan route:list` — list routes
+## 🚀 Deployment Notes
 
-## Frontend
+If deploying with SQLite:
 
-- Entry assets are in `resources/js` and `resources/css`.
-- Vite is configured (`vite.config.js`) — use `npm run dev` for local development and `npm run build` for production assets.
-
-## Contributing
-
-Feel free to open issues or pull requests. Please include a clear description of changes and follow repository coding standards.
-
-## Deployment
-
-Typical steps:
+* Ensure `database/` directory is **writable**
+* Run migrations with `--force`
 
 ```bash
-composer install --optimize-autoloader --no-dev
-npm ci && npm run build
 php artisan migrate --force
-php artisan config:cache
-php artisan route:cache
-php artisan view:cache
+php artisan optimize
 ```
 
-## License
+---
 
-This repository does not include a license file. Add a suitable license (e.g., MIT) if you intend to publish.
+## 📄 License
 
-## Questions / Support
+This project does not currently include a license file.
+Consider adding the **MIT License** if publishing.
 
-If you want me to customize this README further (add architecture diagrams, environment variable examples, or CI/CD instructions), tell me what to include.
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+---
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## 🔗 Useful Resources
 
-## About Laravel
+* **Laravel** – [https://laravel.com/docs](https://laravel.com/docs)
+* **Laravel Herd** – [https://herd.laravel.com](https://herd.laravel.com)
+* **SQLite** – [https://www.sqlite.org/docs.html](https://www.sqlite.org/docs.html)
+* **Vite** – [https://vitejs.dev/guide/](https://vitejs.dev/guide/)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
-
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
-
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
-
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+👉 **Just tell me.**
