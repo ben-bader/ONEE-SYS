@@ -16,16 +16,27 @@ class PeripheriqueFactory extends Factory
      */
     public function definition(): array
     {
-        return [
-            'numero_serie' => $this->faker->unique()->numerify('S-######'),
-            'nom' => $this->faker->word(),
-            'type' => $this->faker->randomElement(['keyboard', 'mouse', 'monitor', 'printer']),
-            'sous_famille' => $this->faker->randomElement(['input', 'output', 'storage']),
-            'description' => $this->faker->text(300),
-            'interface' => $this->faker->randomElement(['USB', 'Bluetooth', 'HDMI', 'Ethernet']),
-            'etat' => $this->faker->randomElement(['actif', 'inactif', 'en maintenance']),
-            'user_id' => \App\Models\User::factory(), // Assuming you have a User factory
-            
+       return [
+            'sous_famille' => $this->faker->word,
+            'designiation_article' => $this->faker->words(3, true),
+            'activite' => $this->faker->word,
+            'marque' => $this->faker->company,
+            'modele' => $this->faker->word,
+            'code_onee' => $this->faker->bothify('ON-###??'),
+            'numero_serie' => $this->faker->unique()->bothify('SN#######'),
+            'nom_affectataire' => $this->faker->name,
+            'matricule_affectataire' => $this->faker->numerify('MAT####'),
+            'entite' => $this->faker->company,
+            'nom_adresse_site' => $this->faker->address,
+            'contrat_acquisition' => $this->faker->word,
+            'type' => $this->faker->word,
+            'num_contrat' => $this->faker->numberBetween(1000, 9999),
+            'date_debut_contrat' => $this->faker->date(),
+            'annee' => $this->faker->year(),
+            'objet' => $this->faker->sentence,
+            'titulaire_marche' => $this->faker->company,
+            'obs' => $this->faker->sentence,
+            'etage' => $this->faker->numberBetween(0, 10),
         ];
     }
 }

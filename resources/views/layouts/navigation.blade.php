@@ -13,10 +13,16 @@
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                        <x-bi-grid class="w-5 h-5 inline-block me-1"/>
                         {{ __('Tableau de bord') }}
                     </x-nav-link>
                     <x-nav-link :href="route('peripherique')" :active="request()->routeIs('peripherique')">
-                        {{ __('Ajouter peripherique') }}
+                        <x-heroicon-o-plus class="w-5 h-5 inline-block me-1" />
+                        {{ __('Ajouter périphérique') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('options')" :active="request()->routeIs('options')">
+                        <x-heroicon-o-cog class="w-5 h-5 inline-block me-1" />
+                        {{ __('Options') }}
                     </x-nav-link>
                 </div>
             </div>
@@ -48,7 +54,7 @@
                             <x-dropdown-link :href="route('logout')"
                                     onclick="event.preventDefault();
                                                 this.closest('form').submit();">
-                                {{ __('Log Out') }}
+                                {{ __('Se déconnecter') }}
                             </x-dropdown-link>
                         </form>
                     </x-slot>
@@ -71,7 +77,12 @@
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                <x-bi-grid class="w-5 h-5 inline-block me-1"/>
                 {{ __('Dashboard') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('peripherique')" :active="request()->routeIs('peripherique')">
+                <x-heroicon-o-plus class="w-5 h-5 inline-block me-1" />
+                {{ __('Ajouter peripherique') }}
             </x-responsive-nav-link>
         </div>
 

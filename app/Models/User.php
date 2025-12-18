@@ -12,8 +12,9 @@ class User extends Authenticatable
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
-    public function peripheriques(){
-        return $this->hasMany(Peripherique::class);
+    public function peripheriques()
+    {
+        return $this->hasMany(Peripherique::class, 'matricule_affectataire', 'matricule');
     }
     /**
      * The attributes that are mass assignable.

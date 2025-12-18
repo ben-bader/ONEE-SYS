@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@media print {
+        body { font-size: 10px; }
+        table { font-size: 9px; table-layout: fixed; word-wrap: break-word; }
+        th, td { padding: 4px; }
+}

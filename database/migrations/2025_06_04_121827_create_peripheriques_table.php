@@ -12,17 +12,41 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('peripheriques', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-            $table->string('numero_serie')->unique();
-            $table->string('nom');
-            $table->string('type');
-            $table->string('sous_famille');
-            $table->text('description')->nullable();
-            $table->string('etat')->default('actif');
-            $table->string('interface');
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
 
+            $table->id();
+
+            $table->string('sous_famille');
+
+            $table->string('designiation_article');
+
+            $table->string('activite');
+
+            $table->string('marque');
+
+            $table->string('modele');
+
+            $table->string('code_onee');
+
+            $table->string('numero_serie')->unique();
+
+            $table->string('nom_affectataire');
+            $table->string('matricule_affectataire')->nullable();
+            $table->foreign('matricule_affectataire')
+                ->references('matricule')
+                ->on('employes')
+                ->onDelete('set null');
+            $table->string('entite');
+            $table->string('nom_adresse_site');
+            $table->string('contrat_acquisition');
+            $table->string('type');
+            $table->string('num_contrat');
+            $table->string('date_debut_contrat');
+            $table->string('annee');
+            $table->text('objet');
+            $table->string('titulaire_marche');
+            $table->text('obs');
+            $table->string('etage');
+            $table->timestamps();
         });
     }
 

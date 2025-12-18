@@ -5,15 +5,24 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+        <title>{{ config('app.name', 'Laravel') }} | @yield('title')</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
-
+        <link rel="shortcut icon" href="{{ asset('img/Onep.png')}}" type="image/x-icon">
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+        
     </head>
+    
+    @if (session('success'))
+       
+    <div id="falsh" class="p-4 text-center bg-green-50 text-green-500 dark:bg-green-200 dark:text-green-500 font-bold">
+        {{session('success')}}
+    </div>
+        
+    @endif
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
             @include('layouts.navigation')
@@ -32,5 +41,23 @@
                 {{ $slot }}
             </main>
         </div>
+        
     </body>
+    <script>
+       
+        function printDiv(divId) {
+            var printContents = document.getElementById(divId).innerHTML;
+            var originalContents = document.body.innerHTML;
+
+            document.body.innerHTML = printContents;
+            document.body.style.margin = '40px';
+            window.print();
+            document.body.style.margin = '0';
+            document.body.innerHTML = originalContents;
+        }
+
+        
+        
+    </script>
+
 </html>
