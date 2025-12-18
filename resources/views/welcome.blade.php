@@ -16,7 +16,7 @@
         @endif
     </head>
     <body class="bg-gray-50 dark:bg-gray-700 text-blue-900 flex lg:p-8 items-center lg:justify-center min-h-screen flex-col">
-        <header class="flex item-center justify-between w-full bg-blue-100 dark:bg-gray-800 lg:max-w-4xl w-full text-sm mb-6 py-2 px-5 rounded not-has-[nav]:hidden">
+        <header class="flex item-center justify-between bg-blue-100 dark:bg-gray-800 lg:max-w-4xl w-full text-sm mb-6 py-2 px-5 rounded not-has-[nav]:hidden">
             <x-application-logo/>
             @if (Route::has('login'))
                 <nav class="flex items-center justify-end gap-4 ">

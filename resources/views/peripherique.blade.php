@@ -19,7 +19,7 @@
         <div>
             <x-input-label for="numero_serie" :value="__('Numéro de série')" />
             <x-text-input id="num_serie" class="block mt-1 w-full" type="text" name="numero_serie" :value="old('numero_serie')" required autofocus autocomplete="numero-serie" />
-            <x-input-error :messages="$errors->get('name')" class="mt-2" />
+            <x-input-error :messages="$errors->get('numero_seriex')" class="mt-2" />
         </div>
 
         <!-- Email Address -->
