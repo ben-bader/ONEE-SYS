@@ -47,6 +47,11 @@
 
 ---
 
+## 🖼️ Preview
+![Preview](/public/img/preview.png)
+
+---
+
 ## ⚡ Quick Start (Laravel Herd)
 
 ### 1️⃣ Clone the repository
@@ -178,4 +183,3 @@ Consider adding the **MIT License** if publishing.
 * **SQLite** – [https://www.sqlite.org/docs.html](https://www.sqlite.org/docs.html)
 * **Vite** – [https://vitejs.dev/guide/](https://vitejs.dev/guide/)
 
-👉 **Just tell me.**
